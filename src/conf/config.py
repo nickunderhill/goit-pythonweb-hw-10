@@ -1,8 +1,19 @@
-class Config:
-    DB_URL = "postgresql+asyncpg://postgres:password@localhost:5432/contacts_db"
-    JWT_SECRET = "your_secret_key"
-    JWT_ALGORITHM = "HS256"
-    JWT_EXPIRATION_SECONDS = 3600  # 1 hour
+from pydantic import ConfigDict
+from pydantic_settings import BaseSettings
 
 
-config = Config
+class Settings(BaseSettings):
+    DB_URL: str
+    JWT_SECRET: str
+    JWT_ALGORITHM: str = "HS256"
+    JWT_EXPIRATION_SECONDS: int = 3600
+
+    model_config = ConfigDict(
+        extra="ignore",
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+    )  # type: ignore
+
+
+settings = Settings()  # type: ignore

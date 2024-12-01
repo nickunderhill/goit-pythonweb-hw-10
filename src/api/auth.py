@@ -9,7 +9,6 @@ from src.database.db import get_db
 router = APIRouter(prefix="/auth", tags=["auth"])
 
 
-# Реєстрація користувача
 @router.post("/register", response_model=User, status_code=status.HTTP_201_CREATED)
 async def register_user(user_data: UserCreate, db: AsyncSession = Depends(get_db)):
     user_service = UserService(db)
@@ -33,7 +32,6 @@ async def register_user(user_data: UserCreate, db: AsyncSession = Depends(get_db
     return new_user
 
 
-# Логін користувача
 @router.post("/login", response_model=Token)
 async def login_user(
     form_data: OAuth2PasswordRequestForm = Depends(), db: AsyncSession = Depends(get_db)

@@ -4,7 +4,7 @@ from src.api import utils, contacts, auth, users
 
 app = FastAPI(
     title="Contacts API",
-    description="goit-pythonweb-hw-08",
+    description="goit-pythonweb-hw-10",
     version="1.0.0",
 )
 
