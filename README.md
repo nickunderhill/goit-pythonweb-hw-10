@@ -18,6 +18,7 @@
 - Gravatar
 - Dotenv
 - Slowapi
+- Cloudinary
 
 ## Технічнe завдання
 
@@ -54,6 +55,9 @@ DB_PORT=5432
 DB_HOST=<host>
 DB_URL=postgresql+asyncpg://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
 
+CLD_NAME=<your cloudinary name>
+CLD_API_KEY=<your cloudinary API key>
+CLD_API_SECRET=<your cloudinary API secret>
 ```
 
 4. Використайте Docker Compose для побудови і запуску середовища.
