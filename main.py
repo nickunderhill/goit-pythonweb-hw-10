@@ -1,6 +1,7 @@
 from slowapi.errors import RateLimitExceeded
 from fastapi import FastAPI, Request
 from starlette.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from src.api import utils, contacts, auth, users
 
@@ -8,6 +9,15 @@ app = FastAPI(
     title="Contacts API",
     description="goit-pythonweb-hw-10",
     version="1.0.0",
+)
+
+origins = ["*"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(utils.router, prefix="/api")
