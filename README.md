@@ -17,6 +17,7 @@
 - JWT
 - Gravatar
 - Dotenv
+- Slowapi
 
 ## Технічнe завдання
 
